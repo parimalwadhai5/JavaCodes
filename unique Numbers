@@ -1,0 +1,38 @@
+//The question is "Given an array of integers, find and print the unique element."
+/*
+For example, if the input is:
+1,1,5,4,3,3,5,6,7,2,7,6,2
+
+Output should be:
+4
+*/
+
+
+import java.util.*;
+public class MyClass {
+    public static void main(String args[]) {
+        int arr[] = {1,1,5,4,3,3,5,6,9,7,2,7,6,2};  //input Array
+        int result[] = {};
+        for(int i=0;i<arr.length;i++){
+            int j;
+            for(j=0;j<arr.length;j++){
+                if(i!= j && arr[i] == arr[j]){
+                    break;
+                }
+            }
+            if(j == arr.length){
+                result = addX(result.length, result, arr[i]);
+            }
+        }
+      System.out.println("Unique Numbers in Array : " + Arrays.toString(result));
+    }
+// below Method to add element in an Array
+    public static int[] addX(int n, int arr[], int x){
+        int newArray[] = new int[n+1];
+        for(int i=0;i<arr.length;i++){
+            newArray[i] = arr[i];
+        }
+        newArray[n] = x;
+        return newArray;
+    }
+}
